@@ -22,3 +22,28 @@ WHEN I enter my email address
 THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
 WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
+
+# README Generator 
+
+## Description
+This is a README generator using back-end technologies. It creates a README.md file that you can then copy and paste into a README file. 
+
+## Installation
+GitBash
+VS Code
+Node.JS
+
+To begin using the generator, on this GitHub repsitory, click "Code" and copy the link. 
+On GitBash, type "git clone <link>" 
+Then install version 16 of Node.JS. Window users use "node-v16.18.0-x64.msi" and Mac users use "node-v16.18.0.pkg" in your terminal. 
+Then type in "npm install inquirer" into your terminal. 
+
+## Usage
+In your GitBash terminal, direct yourself into the cloned file. Prompt the terminal with "node index" to begin answering questions leading to the generation of your README file. 
+
+## Contributing
+
+## Tests
+
+## Questions
+

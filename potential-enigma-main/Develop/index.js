@@ -74,7 +74,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        choices: ['MIT', 'GNU', 'Apache', 'BSD', 'ISC']
+        choices: ['None','MIT', 'GNU', 'Creative Commons']
     },
     {
         type: 'input',

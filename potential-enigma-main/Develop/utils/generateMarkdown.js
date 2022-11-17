@@ -4,20 +4,23 @@ function renderLicenseBadge(license) {
     if (!license) {
       return ``;
     } else {
-      return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`
+      return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)])`
     }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license === 'GPL') {
-    return `http://perso.crans.org/besson/LICENSE.html`
-  }
+  if (license === "None") {
+    return ``
+  } 
   if (license === 'MIT') {
     return `https://lbesson.mit-license.org/`
   }
-  if (license === 'CC--0') {
+  if (license === 'GNU') {
+    return `https://www.gnu.org/licenses/gpl-3.0.en.html`
+  }
+  if (license === 'Creative Commons') {
     return `https://creativecommons.org/licenses/by-nd/4.0` 
   }
 }
@@ -28,8 +31,8 @@ function renderLicenseSection(license) {
   if (!license) {
     return ``;
   } else {
-    return ` ## License
-    This project is licensed by: ${license}`
+    return ` ## License ${renderLicenseBadge}
+    This project is licensed by: ${data.license}. Click the link to learn more about the license: ${renderLicenseLink}`
   }
 }
 
@@ -37,10 +40,19 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
+${renderLicenseSection}
+
 ##Description
 ${data.description}
 
 ##Table of Contents
+* [License](#license)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ##Installation
 ${data.install}
@@ -57,8 +69,6 @@ ${data.tests}
 ##Questions
 If you have any questions, contact me here: ${data.email} 
 GitHub profile: github.com/${data.github}
-
-${renderLicenseBadge}
 `;
 }
 module.exports = generateMarkdown;
