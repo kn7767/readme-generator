@@ -74,7 +74,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        choices: ['None','MIT', 'GNU', 'Creative Commons']
+        choices: ['None','MIT', 'GPLv3', 'CC0_1.0']
     },
     {
         type: 'input',
@@ -90,14 +90,12 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    // let result = generateMarkdown(answers);
-    // console.log(result);
-    // fs.writeFile(fileName, data, error => {
-    //     if (error) throw error;
-    //     console.log('README has been created')
-    // })
+    fs.writeREADME(fileName, data, error => {
+        if (error) {
+            throw error;
+    } else console.log('README has been created. Navigate to readmes folder to find your README file')
+    })
 }
-
 // TODO: Create a function to initialize app
 function init() {
     inquirer
@@ -108,13 +106,17 @@ function init() {
         let result = generateMarkdown(answers)
         console.log(result);
 
+        const readmeInput = generateMarkdown(answers);
+        fs.writeFile('./readmes/README.md', readmeInput, (err) =>
+            err ? console.log(err) : console.log("README has been created. Navigate to readmes folder to find your README file.")
+        )
+
     })
     .then(answers => {
         return generateMarkdown(answers);
-
     })
-        .then(function(markdown) {
-        writeToFile('./dist/README.md', markdown)
+    .then(readmeInput => {
+        return writeToFile(readmeInput);
     })
     .catch(function(error){
         console.log(error);
@@ -122,5 +124,8 @@ function init() {
 
 }
 
+
+
 // Function call to initialize app
 init();
+

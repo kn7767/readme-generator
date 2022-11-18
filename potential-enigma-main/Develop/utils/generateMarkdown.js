@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
     if (!license) {
       return ``;
     } else {
-      return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)])`
+      return `[!License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)])`
     }
 }
 
@@ -28,24 +28,27 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (!license) {
+  if (license === "None") {
     return ``;
   } else {
-    return ` ## License ${renderLicenseBadge}
-    This project is licensed by: ${data.license}. Click the link to learn more about the license: ${renderLicenseLink}`
+    return `${renderLicenseBadge}
+(${renderLicenseLink})
+    `
   }
 }
+renderLicenseSection();
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
+## License: ${data.license}
 ${renderLicenseSection}
 
-##Description
+## Description
 ${data.description}
 
-##Table of Contents
+## Table of Contents
 * [License](#license)
 * [Description](#description)
 * [Installation](#installation)
@@ -54,21 +57,22 @@ ${data.description}
 * [Tests](#tests)
 * [Questions](#questions)
 
-##Installation
+## Installation
 ${data.install}
 
-##Usage
+## Usage
 ${data.usage}
 
-##Contributing
+## Contributing
 ${data.contribute}
 
-##Tests
+## Tests
 ${data.tests}
 
-##Questions
+## Questions
 If you have any questions, contact me here: ${data.email} 
 GitHub profile: github.com/${data.github}
 `;
 }
 module.exports = generateMarkdown;
+
