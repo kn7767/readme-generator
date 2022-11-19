@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
     if (!license) {
       return ``;
     } else {
-      return `[!License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)])`
+      return `![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)`
     }
 }
 
@@ -17,10 +17,10 @@ function renderLicenseLink(license) {
   if (license === 'MIT') {
     return `https://lbesson.mit-license.org/`
   }
-  if (license === 'GNU') {
+  if (license === 'GPLv3') {
     return `https://www.gnu.org/licenses/gpl-3.0.en.html`
   }
-  if (license === 'Creative Commons') {
+  if (license === 'CC0_1.0') {
     return `https://creativecommons.org/licenses/by-nd/4.0` 
   }
 }
@@ -31,19 +31,18 @@ function renderLicenseSection(license) {
   if (license === "None") {
     return ``;
   } else {
-    return `${renderLicenseBadge}
-(${renderLicenseLink})
+    return `${renderLicenseBadge(license)}
+${renderLicenseLink(license)}
     `
   }
 }
-renderLicenseSection();
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
 ## License: ${data.license}
-${renderLicenseSection}
+${renderLicenseSection(data.license)}
 
 ## Description
 ${data.description}

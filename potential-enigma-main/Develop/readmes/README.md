@@ -1,18 +1,12 @@
-# ASDF
+# README Generator
 
-## MIT
-function renderLicenseSection(license) {
-  if (license === "None") {
-    return ``;
-  } else {
-    return `${renderLicenseBadge(license)}
-(${renderLicenseLink(license)})
-    `
-  }
-}
+## License: MIT
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+https://lbesson.mit-license.org/
+    
 
 ## Description
-ASD
+description
 
 ## Table of Contents
 * [License](#license)
@@ -24,17 +18,17 @@ ASD
 * [Questions](#questions)
 
 ## Installation
-sdf
+installation
 
 ## Usage
-dfs
+usage
 
 ## Contributing
-sdfgf
+N/A
 
 ## Tests
-dsfdgf
+tests
 
 ## Questions
-If you have any questions, contact me here: asd 
-GitHub profile: github.com/ASD
+If you have any questions, contact me here: knguy219@ucr.edu 
+GitHub profile: github.com/kn7767
